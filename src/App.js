@@ -1,8 +1,8 @@
 import React, { createContext, useEffect, useState } from 'react';
 import Services from './Services';
 import './style.css';
-
-const context = createContext(); // Context is created.
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
+const GalleryContext = createContext(); // Context is created.
 
 export default function App() {
   const [data, setData] = useState();
@@ -26,10 +26,14 @@ export default function App() {
 
   return (
     <div>
-      {console.log(data)}
-      <h1>Hello StackBlitz!</h1>
-      <p>Start editing to see some magic happen :)</p>
-      <img src={data && data[0].url} />
+      <GalleryContext.Provider value={data}>
+        <BrowserRouter>
+          <Routes>
+            <Route path="/" element={<></>} />
+            <Route path="/ImgDetails" element={<></>} />
+          </Routes>
+        </BrowserRouter>
+      </GalleryContext.Provider>
     </div>
   );
 }
