@@ -26,8 +26,7 @@ export default function App() {
   }, []);
 
   return (
-    <div>
-      {console.log(data)}
+    <div className="App">
       <GalleryContext.Provider value={{ data }}>
         <BrowserRouter>
           <Routes>
