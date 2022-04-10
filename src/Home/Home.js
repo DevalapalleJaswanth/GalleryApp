@@ -8,7 +8,14 @@ export default function Home() {
   console.log(data);
   return (
     <div>
-      <div>{data && data.map((ele, i) => <ImgCard {...ele} />)}</div>
+      <Grid container spacing={2}>
+        {data &&
+          data.map((ele, i) => (
+            <Grid item xs={6} md={3} lg={2} xl={2}>
+              <ImgCard {...ele} />
+            </Grid>
+          ))}
+      </Grid>
     </div>
   );
 }
