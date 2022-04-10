@@ -11,7 +11,7 @@ export default function Home() {
 
   return (
     <div style={{ position: 'relative' }}>
-      <div style={{ position: 'sticky', top: '10px' }}>
+      <div>
         <Search {...myContext} />
       </div>
       <br />
