@@ -5,13 +5,10 @@ import { GalleryContext } from '../Context';
 export default function Home() {
   const myContext = useContext(GalleryContext);
   const { data } = myContext;
+  console.log(data);
   return (
     <div>
-      {console.log(data)}
-      <div>
-        <img src={data && data[0].url} />
-        <Grid />
-      </div>
+      <div>{data && data.map((ele, i) => <ImgCard {...ele} />)}</div>
     </div>
   );
 }
