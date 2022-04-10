@@ -9,7 +9,9 @@ export default function Home() {
   console.log(data);
   return (
     <div>
-      <Search {...myContext} />
+      <div>
+        <Search {...myContext} />
+      </div>
       <br />
       <div>
         <Grid container spacing={2}>
