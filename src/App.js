@@ -5,6 +5,7 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import Home from './Home';
 import { GalleryContext } from './Context';
 
+
 export default function App() {
   const [data, setData] = useState('');
 
@@ -27,7 +28,7 @@ export default function App() {
 
   return (
     <div className="App">
-      <GalleryContext.Provider value={{ data }}>
+      <GalleryContext.Provider value={{ data, setData }}>
         <BrowserRouter>
           <Routes>
             <Route path="/" element={<Home />} />

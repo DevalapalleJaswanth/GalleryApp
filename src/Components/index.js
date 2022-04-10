@@ -1,2 +1,3 @@
 import ImgCard from './ImgCard';
-export { ImgCard };
+import Search from './Search';
+export { ImgCard, Search };
