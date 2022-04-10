@@ -3,8 +3,8 @@ import Services from './Services';
 import './style.css';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import Home from './Home';
+import ImageDetails from './Details';
 import { GalleryContext } from './Context';
-
 
 export default function App() {
   const [data, setData] = useState('');
@@ -32,7 +32,7 @@ export default function App() {
         <BrowserRouter>
           <Routes>
             <Route path="/" element={<Home />} />
-            <Route path="/ImgDetails" element={<></>} />
+            <Route path="/Home/ImgDetails/:id" element={<ImageDetails />} />
           </Routes>
         </BrowserRouter>
       </GalleryContext.Provider>

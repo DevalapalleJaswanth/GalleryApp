@@ -1,0 +1,23 @@
+.card-side {
+  position: absolute;
+  bottom: 0px;
+  right: 0px;
+  background: rgba(34, 33, 33, 0.404);
+  width: 25%;
+  height: 100%;
+  font-size: 12px;
+  color: white;
+  word-wrap: break-word;
+}
+.button {
+  width: 100px;
+  background: white;
+  height: 45px;
+  margin: 10px;
+  border-radius: 0.5rem;
+  color: black;
+}
+.button:hover {
+  background: rgba(4, 28, 78, 0.856);
+  color: white;
+}
