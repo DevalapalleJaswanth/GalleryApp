@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from 'react';
 export default function Pagination(props) {
-  //const [pageData,setPageData]=useState();
   const { dataPerPage, data, setPageData } = props;
   const [numberOfPages, setNumberOfPages] = useState();
+  const [prev, setPrev] = useState(0);
   console.log(props, numberOfPages);
 
   useEffect(() => {
@@ -15,17 +15,24 @@ export default function Pagination(props) {
         }
       });
     setPageData([...temp]);
-    //console.log(temp);
-
     let tempvalue = [];
     for (let i = 1; i <= Math.ceil(data.length / dataPerPage); i++) {
-      tempvalue.push(i);
+      if (i === 1) {
+        tempvalue.push({ value: i, clicked: true });
+      } else {
+        tempvalue.push({ value: i, clicked: false });
+      }
     }
+
     setNumberOfPages([...tempvalue]);
-    //console.log(temp);
   }, [data]);
 
-  const handleClick = (value) => {
+  const handleClick = (value, i) => {
+    let tempvalue = [...numberOfPages];
+    tempvalue[prev].clicked = false;
+    tempvalue[i].clicked = true;
+    setPrev(i);
+    setNumberOfPages([...tempvalue]);
     let temp =
       data &&
       data.filter((ele, i) => {
@@ -38,14 +45,22 @@ export default function Pagination(props) {
   return (
     <div>
       {numberOfPages &&
-        numberOfPages.map((value, i) => (
+        numberOfPages.map((ele, i) => (
           <button
             key={i}
             onClick={() => {
-              handleClick(value);
+              handleClick(ele.value, i);
+            }}
+            style={{
+              width: '30px',
+              height: '30px',
+              backgroundColor: ele.clicked === true ? '#778899' : 'white',
+              color: ele.clicked === true ? 'white' : '#778899',
+              borderColor: '#778899',
+              borderRadius: '0.3rem',
             }}
           >
-            {value}
+            {ele.value}
           </button>
         ))}
     </div>

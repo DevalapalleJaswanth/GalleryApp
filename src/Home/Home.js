@@ -8,7 +8,7 @@ export default function Home() {
   const { data, setData } = myContext;
   const navigate = useNavigate();
   const [pageData, setPageData] = useState();
-  console.log(pageData);
+
   return (
     <div style={{ position: 'relative' }}>
       <div style={{ position: 'sticky', top: '10px' }}>
