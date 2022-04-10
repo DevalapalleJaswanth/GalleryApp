@@ -2,6 +2,8 @@ import React, { createContext, useEffect, useState } from 'react';
 import Services from './Services';
 import './style.css';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import Home from './Home';
+
 const GalleryContext = createContext(); // Context is created.
 
 export default function App() {
@@ -29,7 +31,7 @@ export default function App() {
       <GalleryContext.Provider value={data}>
         <BrowserRouter>
           <Routes>
-            <Route path="/" element={<></>} />
+            <Route path="/" element={<Home />} />
             <Route path="/ImgDetails" element={<></>} />
           </Routes>
         </BrowserRouter>
