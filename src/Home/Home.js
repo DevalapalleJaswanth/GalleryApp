@@ -28,7 +28,7 @@ export default function Home() {
                 xl={2}
                 key={i}
                 onClick={() => {
-                  navigate(`/Home/ImgDetails/${i}`);
+                  navigate(`/Home/ImgDetails/${ele.id}`);
                 }}
               >
                 <ImgCard {...ele} />
