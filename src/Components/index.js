@@ -1,3 +1,4 @@
 import ImgCard from './ImgCard';
 import Search from './Search';
-export { ImgCard, Search };
+import Pagination from './Pagination';
+export { ImgCard, Search, Pagination };
