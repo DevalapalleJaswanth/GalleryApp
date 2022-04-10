@@ -1,13 +1,12 @@
-import React, { createContext, useEffect, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import Services from './Services';
 import './style.css';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import Home from './Home';
-
-const GalleryContext = createContext(); // Context is created.
+import { GalleryContext } from './Context';
 
 export default function App() {
-  const [data, setData] = useState();
+  const [data, setData] = useState('');
 
   async function getData() {
     let response = await Services.getImages();
@@ -28,7 +27,8 @@ export default function App() {
 
   return (
     <div>
-      <GalleryContext.Provider value={data}>
+      {console.log(data)}
+      <GalleryContext.Provider value={{ data }}>
         <BrowserRouter>
           <Routes>
             <Route path="/" element={<Home />} />

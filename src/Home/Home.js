@@ -1,16 +1,17 @@
 import React, { useContext } from 'react';
 import Grid from '@mui/material/Grid';
 import { ImgCard } from '../Components';
+import { GalleryContext } from '../Context';
 export default function Home() {
-  const context = useContext();
+  const myContext = useContext(GalleryContext);
+  const { data } = myContext;
   return (
-    <Grid container rowSpacing={1} columnSpacing={{ xs: 1, sm: 2, md: 3 }}>
-      {context &&
-        context.map((ele, i) => (
-          <Grid item xs={6} key={i}>
-            <ImgCard id={ele.id} title={ele.title} url={ele.url} />
-          </Grid>
-        ))}
-    </Grid>
+    <div>
+      {console.log(data)}
+      <div>
+        <img src={data && data[0].url} />
+        <Grid />
+      </div>
+    </div>
   );
 }
